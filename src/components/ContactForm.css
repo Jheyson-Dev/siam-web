@@ -1,0 +1,383 @@
+/* ContactForm.css - Premium Glassmorphism Design */
+
+/* Modal Overlay */
+.contact-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 1rem;
+}
+
+/* Modal Box - Centered and Width-Constrained */
+.contact-modal-box {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Close Button */
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #f1f5f9;
+    color: #94a3b8;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-btn:hover {
+    background: #fee2e2;
+    color: #ef4444;
+    transform: rotate(90deg);
+}
+
+.contact-form-container {
+    font-family: 'Outfit', sans-serif;
+    color: #1e293b;
+    padding: 20px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.contact-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #0f766e 0%, #15803d 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.5px;
+}
+
+.contact-subtitle {
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Form Groups */
+.contact-form-group {
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+.contact-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0.4rem;
+    transition: color 0.2s;
+}
+
+.contact-input,
+.contact-textarea {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    background: #f8fafc;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    color: #334155;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+    outline: none;
+    border-color: #15803d;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(21, 128, 61, 0.1);
+    transform: translateY(-1px);
+}
+
+.contact-form-group:focus-within .contact-label {
+    color: #15803d;
+}
+
+.contact-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Grid Layout for Desktop */
+.form-row-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+    .form-row-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Submit Button */
+.btn-submit-premium {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #15803d 0%, #0f766e 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(21, 128, 61, 0.25);
+    margin-top: 0.5rem;
+}
+
+.btn-submit-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(21, 128, 61, 0.35);
+    background: linear-gradient(135deg, #16a34a 0%, #14b8a6 100%);
+}
+
+.btn-submit-premium:active {
+    transform: translateY(0);
+}
+
+.btn-submit-premium:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-submit-premium.loading {
+    cursor: wait;
+}
+
+/* Success State */
+.success-message {
+    text-align: center;
+    padding: 3rem 1rem;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.success-icon-large {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.success-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #10b981;
+    margin-bottom: 0.5rem;
+}
+
+.success-subtext {
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Close Button Override */
+.contact-modal .contact-content-wrapper button.modal-close-btn {
+    background: #f1f5f9 !important;
+    color: #94a3b8 !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    font-size: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    border: none !important;
+    z-index: 100 !important;
+    cursor: pointer !important;
+}
+
+.contact-modal .contact-content-wrapper button.modal-close-btn:hover {
+    background: #fee2e2 !important;
+    color: #ef4444 !important;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+    .contact-modal-overlay {
+        padding: 0;
+        align-items: flex-start;
+    }
+
+    .contact-modal-box {
+        max-height: 100vh;
+        height: 100vh;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-form-container {
+        padding: 12px;
+        overflow-y: auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact-header {
+        margin-bottom: 0.4rem;
+        padding-top: 1.8rem;
+        padding-bottom: 0.3rem;
+    }
+
+    .contact-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.15rem;
+    }
+
+    .contact-subtitle {
+        font-size: 0.75rem;
+    }
+
+    .contact-form-group {
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-label {
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .contact-input,
+    .contact-textarea {
+        padding: 0.55rem 0.7rem;
+        font-size: 0.9rem;
+        border-radius: 8px;
+    }
+
+    .contact-textarea {
+        min-height: 40px;
+    }
+
+    .form-row-grid {
+        gap: 0.5rem;
+    }
+
+    .btn-submit-premium {
+        padding: 0.65rem;
+        font-size: 0.9rem;
+        margin-top: 0.4rem;
+    }
+
+    .btn-cancel {
+        padding: 0.6rem;
+        margin-top: 0.4rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .success-message {
+        padding: 2rem 1rem;
+    }
+
+    .modal-close-btn {
+        top: 8px;
+        right: 8px;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+}
+
+.btn-cancel {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.65rem;
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+    background: #f8fafc;
+    color: #475569;
+}

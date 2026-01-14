@@ -1,0 +1,341 @@
+/* 
+ * FormLogin.css - Estilos Premium para el Login
+ * Diseñado con estética Glassmorphism, tipografía Outfit y paleta Slate/Blue.
+ */
+
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.65);
+    /* Slate 900 semi-transparente */
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3500;
+    padding: 20px;
+    animation: fadeInOverlay 0.4s ease-out;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.login-card {
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    max-width: 850px;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: 'Outfit', -apple-system, sans-serif;
+    animation: slideUpIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUpIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Grid Layout */
+.login-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+    .login-content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .login-section-left {
+        /* No ocultar, sino compactar */
+        padding: 10px;
+        background: #fff;
+        border-right: none;
+        border-bottom: 1px solid #f1f5f9;
+        min-height: auto;
+    }
+
+    .login-section-left .section-header,
+    .login-section-left .form-group {
+        display: none;
+    }
+
+    .login-section-left .section-body {
+        padding: 0;
+    }
+
+    .login-section-left img {
+        height: 40px !important;
+    }
+}
+
+/* Columna Izquierda (Branding / Entidad) */
+.login-section-left {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-right: 1px solid #e2e8f0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section-left .section-header {
+    background: none;
+    color: #64748b;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    margin-bottom: 24px;
+}
+
+.login-section-left .form-input {
+    background: #fff;
+    border-color: #e2e8f0;
+    font-weight: 600;
+    color: #1e293b;
+    text-align: center;
+}
+
+.login-section-left textarea.form-input {
+    font-size: 0.85rem;
+    color: #475569;
+}
+
+/* Columna Derecha (Identificación) */
+.login-section-right {
+    background: white;
+    padding: 30px 40px;
+    position: relative;
+}
+
+.login-section-right .section-header {
+    background: none;
+    color: #0f172a;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: none;
+    text-align: left;
+    margin-bottom: 30px;
+    padding: 0;
+}
+
+/* Perfil de Usuario */
+.user-login-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.user-photo-large {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    /* Circular para verse más moderno */
+    object-fit: cover;
+    background: #f1f5f9;
+    border: 4px solid white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.user-photo-large:hover {
+    transform: scale(1.1);
+}
+
+/* Inputs */
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-label {
+    font-size: 0.775rem;
+    color: #64748b;
+    margin-bottom: 6px;
+    font-weight: 600;
+    display: block;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #f1f5f9;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #1e293b;
+    transition: all 0.2s;
+    background: #f8fafc;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.password-toggle-btn {
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.password-toggle-btn:hover {
+    opacity: 1;
+}
+
+/* Login Actions */
+.login-actions {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn {
+    height: 48px;
+    border-radius: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-accept {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-accept:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btn-exit {
+    background: #f8fafc;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+}
+
+.btn-exit:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+    border-color: #cbd5e1;
+}
+
+/* Footer Customizado */
+.login-footer {
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
+
+.siam-logo-footer-white {
+    filter: none;
+    /* Quitar invert para usar logo azul original */
+    opacity: 0.6;
+    height: 14px;
+}
+
+/* Checkbox Check */
+.checkbox-group {
+    user-select: none;
+}
+
+.checkbox-group label {
+    font-weight: 600;
+    color: #64748b;
+}
+
+/* Responsive Fixes */
+@media (max-width: 480px) {
+    .login-overlay {
+        padding: 10px;
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+
+    .login-card {
+        max-height: 85vh;
+        /* Aún más bajo para seguridad */
+        overflow-y: auto;
+        border-radius: 12px;
+    }
+
+    .login-section-right {
+        padding: 12px 15px !important;
+    }
+
+    .login-section-right .section-header {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    .user-login-layout {
+        gap: 8px;
+    }
+
+    .user-photo-large {
+        width: 60px;
+        height: 60px;
+    }
+
+    .form-group {
+        margin-bottom: 6px;
+    }
+
+    .form-input {
+        padding: 8px 12px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    .login-actions {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .btn {
+        height: 38px;
+        font-size: 0.85rem;
+    }
+
+    .login-footer {
+        padding: 8px 12px;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 0.6rem;
+    }
+}

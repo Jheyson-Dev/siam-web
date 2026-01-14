@@ -1,0 +1,705 @@
+/* Global Clean Reset & Typography */
+:root {
+  --primary-bg: #ffffff;
+  --secondary-bg: #f9fafb;
+  --text-main: #111827;
+  --text-secondary: #6b7280;
+  --accent-color: #ec4899;
+  /* Pinkish red from image logo */
+  --border-color: #e5e7eb;
+  --pill-bg: #eff6ff;
+  --pill-text: #3b82f6;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-main);
+  height: 100vh;
+  overflow: hidden;
+  /* App handles scrolling */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* --- SAAS Header Styles --- */
+.saas-header {
+  height: 64px;
+  background: white;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  /* min-width: 200px; Remove fixed min-width to allow content fit */
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-main);
+  padding: 0;
+  line-height: 1;
+}
+
+.brand-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  /* Optional if logo contains text */
+  display: none;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.tool-nav {
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+  background: transparent;
+}
+
+.tool-nav li a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  /* Pill shape */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.tool-nav li a:hover {
+  background-color: #f3f4f6;
+  color: var(--text-main);
+}
+
+.tool-nav li.active a {
+  background-color: #eff6ff;
+  /* Light blue pill */
+  color: #2563eb;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 200px;
+  justify-content: flex-end;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover {
+  background-color: #f3f4f6;
+  color: var(--text-main);
+}
+
+.notification-wrapper {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: #ef4444;
+  color: white;
+  font-size: 0.65rem;
+  padding: 2px 4px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+
+.create-btn {
+  background: white;
+  border: 1px solid var(--border-color);
+  color: #2563eb;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.create-btn:hover {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+/* --- Componentes SIAM: Header & Profile --- */
+.company-info-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: #1A202C;
+}
+
+@media (max-width: 600px) {
+  .company-info-container {
+    display: none;
+    /* Ocultar detalles empresa en móvil muy pequeño */
+  }
+}
+
+.user-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-name-display {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.user-name-text {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #1e293b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+@media (max-width: 480px) {
+  .user-name-text {
+    display: none;
+    /* Solo mostrar avatar en móvil extra pequeño */
+  }
+}
+
+.avatar-container {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #e2e8f0;
+  background-color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.logout-icon-btn {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  cursor: pointer;
+  font-size: 1.1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #334155;
+  /* Gris oscuro muy nítido */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.logout-icon-btn:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+  /* Rojo vibrante y claro */
+  border-color: #fca5a5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.15);
+}
+
+.logout-icon-btn:active {
+  transform: translateY(0);
+  background-color: #fecaca;
+}
+
+/* --- Sidebar Overlay for Mobile --- */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+  /* Higher than map controls */
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* --- SAAS Sidebar Styles --- */
+.saas-sidebar {
+  width: 260px;
+  height: calc(100vh - 64px);
+  position: fixed;
+  top: 64px;
+  left: 0;
+  background: white;
+  border-right: 1px solid var(--border-color);
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
+  z-index: 2000;
+  /* High z-index to appear above map controls */
+}
+
+.nav-section {
+  margin-bottom: 2rem;
+}
+
+.nav-category {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #1e293b;
+  /* Dark slate */
+  background-color: #f3f4f6;
+  /* Light gray background block */
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.nav-category:hover {
+  background-color: #e5e7eb;
+}
+
+.nav-list {
+  list-style: none;
+  padding-left: 0.5rem;
+  /* Indent submenu */
+}
+
+.nav-item {
+  margin-bottom: 0.25rem;
+}
+
+.nav-item a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 500;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.nav-item a:hover {
+  background-color: #f8fafc;
+  transform: translateX(4px);
+}
+
+.item-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  /* Softer square */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.item-label {
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 2rem;
+}
+
+.sidebar-footer a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+/* --- Main Layout --- */
+.main-layout {
+  margin-top: 64px;
+  margin-left: 260px;
+  background: white;
+  /* Clean white background */
+  min-height: calc(100vh - 64px);
+  display: flex;
+  flex-direction: column;
+}
+
+.content-area {
+  padding: 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Page Header within Main Content */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-top: 2rem;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.page-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.sort-dropdown {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- Contact Modal Styles --- */
+.contact-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  /* Reduced opacity */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.contact-content {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  position: relative;
+  animation: slideUpModal 0.3s ease-out;
+}
+
+@keyframes slideUpModal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.contact-content p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+/* Grid Layout for Form */
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.form-group {
+  margin-bottom: 0;
+  /* Handled by grid gap */
+  display: flex;
+  flex-direction: column;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  background: #f9fafb;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background: #1d4ed8;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--text-main);
+}
+
+.export-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  background: white;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Map Container Override */
+.map-container {
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  /* Softer shadow */
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+/* Map Search Input Styles */
+.map-search-input {
+  padding: 10px;
+  border-radius: 4px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  width: 450px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+  background-color: white;
+  text-align: left;
+  direction: ltr;
+}
+
+.map-search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* --- Responsive Design (< 768px) --- */
+@media (max-width: 768px) {
+  .saas-sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    width: 250px;
+    /* Slightly narrower */
+  }
+
+  /* Class to toggle sidebar on mobile context if needed */
+  .saas-sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 10px 0 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .main-layout {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .saas-header {
+    padding: 0 1rem;
+  }
+
+  .header-center {
+    display: none;
+    /* Hide pill nav on mobile for minimalism */
+  }
+
+  .header-left {
+    min-width: auto;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .brand-name {
+    display: none;
+  }
+
+  /* Map controls should be below sidebar but visible (1000 < 2000) */
+  .leaflet-top,
+  .leaflet-bottom,
+  .leaflet-control {
+    z-index: 1000 !important;
+  }
+
+  /* Map search responsive */
+  .map-search-input {
+    width: 200px !important;
+    font-size: 13px !important;
+  }
+}
+
+/* Hide mobile contact button on desktop */
+@media (min-width: 769px) {
+  .btn-contact-mobile {
+    display: none !important;
+  }
+}

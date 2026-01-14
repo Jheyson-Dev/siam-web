@@ -1,0 +1,518 @@
+/* 
+ * RegistroSolicitudAltaModal.css - Estilos Premium & Responsive
+ */
+
+.alta-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.7);
+    /* Aumentamos ligeramente la opacidad al quitar el blur */
+    /* backdrop-filter: blur(4px); */
+    /* DESACTIVADO por petición de usuario */
+    /* Efecto Glass */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+    padding: 16px;
+    animation: fadeInOverlay 0.3s ease-out;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.alta-modal-content {
+    background: white;
+    max-width: 800px;
+    width: 100%;
+    max-height: 90vh;
+    /* Dejar margen vertical */
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: 'Outfit', -apple-system, sans-serif;
+    animation: scaleInContent 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleInContent {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Header */
+.alta-modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: #fff;
+    flex-shrink: 0;
+    /* No encoger header */
+}
+
+.header-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.alta-modal-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #0f172a;
+    /* Slate 900 */
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.header-subtitle {
+    margin: 4px 0 0;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.alta-badge {
+    background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+    color: #0284c7;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+/* Body */
+.alta-modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+    background-color: #f8fafc;
+    /* Slate 50 */
+    scroll-behavior: smooth;
+}
+
+/* Status Messages */
+.status-msg {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.5;
+    animation: slideDown 0.3s ease-out;
+}
+
+.status-success {
+    background-color: #f0fdf4;
+    border: 1px solid #86efac;
+    color: #166534;
+}
+
+.status-error {
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c;
+}
+
+.status-warning {
+    background-color: #fffbeb;
+    border: 1px solid #fde68a;
+    color: #92400e;
+}
+
+.status-info {
+    background-color: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #1e40af;
+}
+
+/* Secciones */
+.alta-form-section {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* Sombra sutil */
+    border: 1px solid #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.section-applicant {
+    border-left: 4px solid #3b82f6;
+}
+
+.section-notary {
+    border-left: 4px solid #0ea5e9;
+}
+
+.section-contact {
+    border-left: 4px solid #10b981;
+}
+
+.alta-section-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Grids */
+.alta-fields-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+}
+
+@media (min-width: 768px) {
+    .field-full-width {
+        grid-column: 1 / -1;
+    }
+}
+
+.alta-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+/* Inputs Premium */
+.alta-modal-body label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.alta-modal-body input,
+.alta-modal-body textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #1e293b;
+    background: #f8fafc;
+    font-family: inherit;
+}
+
+.alta-modal-body input:focus,
+.alta-modal-body textarea:focus {
+    outline: none;
+    background: white;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+.alta-modal-body input:disabled {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    cursor: not-allowed;
+    border-color: #e2e8f0;
+}
+
+/* Botones de Acción (Verificar/Buscar) */
+.dni-search-container,
+.search-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* Por defecto en móvil: Apilado */
+    gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .field-full-width {
+        grid-column: 1 / -1;
+    }
+
+    .dni-search-container,
+    .search-input-wrapper {
+        flex-direction: row;
+        /* En desktop: Lado a lado */
+        align-items: flex-end;
+        /* Alineado por la base */
+    }
+}
+
+.verify-btn,
+.search-btn {
+    flex-shrink: 0;
+    padding: 0 1.25rem;
+    height: 48px;
+    /* Touch friendly height */
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    color: white;
+}
+
+.verify-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+.verify-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
+}
+
+.search-btn {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+}
+
+/* Resultados Flotantes */
+.floating-results-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    max-height: 220px;
+    overflow-y: auto;
+    margin-top: 6px;
+    list-style: none;
+    padding: 0;
+}
+
+.floating-results-list li {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.floating-results-list li:last-child {
+    border-bottom: none;
+}
+
+.floating-results-list li:hover {
+    background-color: #f0f9ff;
+}
+
+/* Footer */
+.alta-modal-footer {
+    padding: 1.5rem;
+    background-color: white;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+.btn-cancelar {
+    padding: 0.75rem 1.5rem;
+    color: #64748b;
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancelar:hover {
+    background-color: #f1f5f9;
+    color: #334155;
+}
+
+.btn-registrar {
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-registrar:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 10px -1px rgba(16, 185, 129, 0.3);
+}
+
+.btn-registrar:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Mobile Responsive Tweaks */
+@media (max-width: 640px) {
+    .alta-modal-overlay {
+        padding: 0;
+        /* Full screen en móvil */
+        align-items: flex-end;
+        /* Sheet style bottom up */
+    }
+
+    .alta-modal-content {
+        max-height: 95vh;
+        /* Casi full height */
+        border-radius: 16px 16px 0 0;
+        /* Rounded top only */
+        animation: slideUpSheet 0.3s ease-out;
+    }
+
+    @keyframes slideUpSheet {
+        from {
+            transform: translateY(100%);
+        }
+
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    .alta-modal-header {
+        padding: 1rem 1.25rem;
+    }
+
+    .alta-modal-body {
+        padding: 1rem;
+    }
+
+    .alta-modal-footer {
+        padding: 1rem;
+        flex-direction: column-reverse;
+        /* Stack buttons */
+        gap: 0.75rem;
+    }
+
+    .btn-cancelar,
+    .btn-registrar {
+        width: 100%;
+        text-align: center;
+        padding: 0.9rem;
+        /* Tappable area larger */
+    }
+
+    /* Stackear grids verticales */
+    .alta-fields-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Botones de búsqueda full width en su fila */
+    .dni-search-container,
+    .search-input-wrapper {
+        flex-direction: column;
+    }
+
+    .verify-btn,
+    .search-btn {
+        width: 100%;
+    }
+}
+
+/* --- Pantalla de Éxito --- */
+.success-screen-content {
+    max-width: 500px !important;
+    text-align: center;
+    padding: 2.5rem 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.success-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.success-title {
+    color: #166534;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.success-message {
+    color: #4b5563;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.btn-success-close {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+
+    /* Elevamos el modal en el overlay para evitar que se corte por abajo */
+    .alta-modal-overlay {
+        align-items: flex-start !important;
+        padding-top: 20px !important;
+    }
+
+    .alta-modal-content {
+        max-height: 85vh !important;
+        margin-bottom: 10px;
+    }
+
+    .success-screen-content {
+        padding: 1rem 1rem !important;
+        justify-content: center !important;
+    }
+
+    .success-icon {
+        font-size: 2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .success-title {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .success-message {
+        margin-bottom: 0.8rem;
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+
+    .btn-success-close {
+        height: 40px !important;
+        font-size: 0.9rem !important;
+    }
+}

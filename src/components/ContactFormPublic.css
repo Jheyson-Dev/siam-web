@@ -1,0 +1,253 @@
+/* ContactFormPublic.css - Formulario Público Standalone */
+
+.contact-public-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f766e 0%, #15803d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+.contact-public-container {
+    max-width: 700px;
+    width: 100%;
+}
+
+/* Header/Brand */
+.contact-public-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-area {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.brand-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.brand-soft {
+    color: #86efac;
+    font-weight: 400;
+}
+
+.brand-tagline {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* Form Wrapper */
+.contact-public-form-wrapper {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.form-subtitle {
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+/* Form Styles */
+.public-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row.two-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-field label {
+    font-weight: 600;
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+.form-field input,
+.form-field textarea {
+    padding: 0.875rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s;
+    background: #f8fafc;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: #15803d;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.1);
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Submit Button */
+.btn-submit-public {
+    background: linear-gradient(135deg, #15803d 0%, #0f766e 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1rem;
+}
+
+.btn-submit-public:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(21, 128, 61, 0.3);
+}
+
+.btn-submit-public:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Success Card */
+.success-card {
+    text-align: center;
+    background: white;
+    padding: 4rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.success-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+
+.success-card h1 {
+    color: #15803d;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.success-card p {
+    color: #64748b;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.success-subtitle {
+    color: #94a3b8;
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.btn-send-another {
+    background: #15803d;
+    color: white;
+    padding: 0.875rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-send-another:hover {
+    background: #0f766e;
+    transform: translateY(-2px);
+}
+
+/* Alert */
+.alert-error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #dc2626;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Footer Info */
+.contact-info-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.contact-info-footer strong {
+    color: #334155;
+    margin: 0 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-public-form-wrapper {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-row.two-cols {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-title {
+        font-size: 2.5rem;
+    }
+
+    .form-title {
+        font-size: 1.75rem;
+    }
+
+    .success-card {
+        padding: 3rem 1.5rem;
+    }
+
+    .success-card h1 {
+        font-size: 2rem;
+    }
+}
