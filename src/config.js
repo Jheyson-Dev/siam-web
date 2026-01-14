@@ -9,7 +9,7 @@
 // 3. SELECCIÓN AUTOMÁTICA O MANUAL
 // Para forzar una URL, simplemente asigna el valor directamente a API_BASE_URL
 export const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:3001";
+  import.meta.env.VITE_API_URL || "http://localhost:3001";
 
 // Identificador de la Ejecutora actual (IDE_EJE)
 export const PIDE_EJE_CURRENT = parseInt(
