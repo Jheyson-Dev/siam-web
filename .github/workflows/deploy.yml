@@ -27,7 +27,7 @@ jobs:
         run: npm run build
         env:
           VITE_API_BASE_URL: ${{ secrets.VITE_API_BASE_URL }}
-          VITE_API_QR: ${{ secrets.VITE_API_QR }}
+          VITE_PIDE_EJE_CURRENT: ${{ secrets.VITE_PIDE_EJE_CURRENT }}
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
